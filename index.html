@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roblox - Auth Portal</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Include Firebase App and Auth SDKs via Production CDN -->
+    <script src="https://gstatic.com"></script>
+    <script src="https://gstatic.com"></script>
+</head>
+<body>
+
+    <!-- Top Navigation Bar -->
+    <header class="navbar">
+        <div class="nav-left">
+            <button id="sidebar-toggle" class="btn-icon">☰</button>
+            <div class="logo">ROBLOX</div>
+        </div>
+        <div class="nav-center"></div>
+        <div class="nav-right">
+            <!-- Dynamic Authentication System Buttons -->
+            <div id="auth-controls">
+                <button id="nav-login-btn" class="btn-secondary">Log In</button>
+                <button id="nav-signup-btn" class="btn-primary">Sign Up</button>
+            </div>
+            <div id="logged-in-profile" class="user-info hidden">
+                <span id="username-display">Loading...</span>
+                <button id="logout-btn" class="btn-secondary" style="padding: 4px 10px; margin-left: 10px;">Log Out</button>
+            </div>
+        </div>
+    </header>
+
+    <div class="main-container">
+        <!-- Sidebar Navigation Menu -->
+        <aside id="sidebar" class="sidebar">
+            <nav>
+                <a href="#" class="active">Home</a>
+                <a href="#">Profile</a>
+                <a href="#">Avatar Shop</a>
+                <a href="#">Create</a>
+            </nav>
+        </aside>
+
+        <!-- Core Information Desk Panel Area -->
+        <main class="content">
+            <section class="welcome-banner">
+                <h1>Authentication Portal</h1>
+                <p id="welcome-message">Welcome to Roblox! Please log in or sign up using the panel.</p>
+            </section>
+        </main>
+    </div>
+
+    <!-- Central Authentication Overlay Form Box -->
+    <div id="auth-modal" class="modal-overlay hidden">
+        <div class="modal-box">
+            <button id="close-modal-btn" class="modal-close">×</button>
+            <h2 id="modal-title">Log In to Roblox</h2>
+            
+            <form id="auth-form">
+                <div class="form-group">
+                    <label for="auth-email">Email Address</label>
+                    <input type="email" id="auth-email" required placeholder="Enter your email...">
+                </div>
+                <div class="form-group">
+                    <label for="auth-password">Password</label>
+                    <input type="password" id="auth-password" required placeholder="Enter password...">
+                </div>
+                
+                <!-- Display status messaging dynamically -->
+                <p id="auth-error-msg" style="color: #ff4a4a; font-size: 13px; margin-bottom: 10px; display: none;"></p>
+                
+                <button type="submit" id="submit-auth-btn" class="btn-primary wide-btn">Submit</button>
+            </form>
+            
+            <p class="toggle-auth-text">
+                <span id="switch-auth-prompt">Don't have an account?</span> 
+                <a href="#" id="switch-auth-link">Sign Up</a>
+            </p>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
